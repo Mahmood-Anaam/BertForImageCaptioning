@@ -3,8 +3,6 @@
 
 This repository contains the implementation of a **BERT-based image captioning model**, leveraging a modular and configurable architecture for generating captions from images.
 
----
-
 ## Project Architecture
 
 The repository is organized into the following directories:
@@ -39,14 +37,12 @@ BERTForImageCaptioning/
 └── setup.py                        # Installation setup script.
 ```
 
----
-
 ## Installation Instructions
 
 ### Prerequisites
 
-- Python >= 3.7
-- PyTorch >= 1.8
+- Python >= 3.9
+- PyTorch >= 1.9
 - CUDA (if GPU is used)
 
 ### Steps to Install
