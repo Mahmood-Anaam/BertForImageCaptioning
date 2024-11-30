@@ -180,7 +180,7 @@ class BertImgModel(BertPreTrainedModel):
             if self.use_img_layernorm:
                 self.LayerNorm = BertLayerNorm(config.hidden_size, eps=config.img_layer_norm_eps)
 
-        self.apply(self.init_weights)
+        self.init_weights()
 
     def _resize_token_embeddings(self, new_num_tokens):
         old_embeddings = self.embeddings.word_embeddings
@@ -317,7 +317,7 @@ class ImageBertForSequenceClassification(BertPreTrainedModel):
                 )
         else:
             self.classifier = nn.Linear(config.hidden_size, self.config.num_labels)  # original
-        self.apply(self.init_weights)
+        self.init_weights()
 
     def init_code_embedding(self, em):
         self.bert.code_embeddings.weight.data = em.clone()
@@ -393,7 +393,7 @@ class ImageBertForMultipleChoice(BertPreTrainedModel):
         else:
             self.classifier = nn.Linear(config.num_choice*config.hidden_size, self.config.num_labels)  # original
 
-        self.apply(self.init_weights)
+        self.init_weights()
 
     def forward(self, input_ids, token_type_ids=None, attention_mask=None, labels=None,
                 position_ids=None, head_mask=None, img_feats=None):
@@ -527,7 +527,7 @@ class OscarForMultipleChoice(BertPreTrainedModel):
         else:
             self.classifier = nn.Linear(config.hidden_size, config.num_labels)  # original
 
-        self.apply(self.init_weights)
+        self.init_weights()
 
     def forward(self, input_ids, token_type_ids=None, attention_mask=None, labels=None,
                 position_ids=None, head_mask=None, img_feats=None):
@@ -612,7 +612,7 @@ class BertForImageCaptioning(CaptionPreTrainedModel):
         self.cls = BertOnlyMLMHead(config)
         self.loss = BertCaptioningLoss(config)
 
-        self.apply(self.init_weights)
+        self.init_weights()
         self.tie_weights()
 
     def tie_weights(self):
@@ -976,7 +976,7 @@ class BertImgForPreTraining(ImgPreTrainedModel):
         self.cls = BertPreTrainingHeads(config)
         self.num_seq_relations = config.num_contrast_classes if hasattr(config, "num_contrast_classes") else 2
 
-        self.apply(self.init_weights)
+        self.init_weights()
         self.tie_weights()
 
     def init_weights(self, module):
