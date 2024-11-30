@@ -14,8 +14,8 @@ from pytorch_transformers.modeling_bert import (BertEmbeddings,
 		BertPredictionHeadTransform, BertOnlyMLMHead, BertLMPredictionHead,
         BertConfig, BERT_PRETRAINED_MODEL_ARCHIVE_MAP,
         load_tf_weights_in_bert)
-from modeling_utils import CaptionPreTrainedModel, ImgPreTrainedModel
-from cbs import ConstrainedBeamSearch, select_best_beam_with_constraints
+from modeling.modeling_utils import CaptionPreTrainedModel, ImgPreTrainedModel
+from modeling.cbs import ConstrainedBeamSearch, select_best_beam_with_constraints
 
 logger = logging.getLogger(__name__)
 
