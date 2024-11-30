@@ -1,1 +1,2 @@
-from modeling import modeling_utils
+from . import modeling_utils,modeling_bert
+
