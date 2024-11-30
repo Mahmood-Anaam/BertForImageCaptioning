@@ -25,6 +25,8 @@ setup(
         "scipy>=1.5.4",
         "scikit-learn>=0.24.2",
         "Pillow>=8.3.2",
+        "anytree>=2.12.1",
+        
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
